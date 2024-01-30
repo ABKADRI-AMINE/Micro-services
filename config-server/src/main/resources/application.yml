@@ -1,0 +1,17 @@
+# Configuration du serveur Spring Cloud Config
+server:
+  port: 8888
+
+# Configuration de l'application
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-server
+
+# Configuration du serveur Spring Cloud Config pour la gestion des propriétés
+cloud:
+  config:
+    server:
+      native:
+        search-locations: classpath:/configurations

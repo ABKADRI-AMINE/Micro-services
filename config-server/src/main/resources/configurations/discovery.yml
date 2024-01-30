@@ -1,0 +1,19 @@
+# Configuration for Eureka server instance
+eureka:
+  instance:
+    # Hostname of the Eureka server instance
+    hostname: localhost
+
+  client:
+    # Do not register this instance with Eureka server
+    register-with-eureka: false
+    # Do not fetch registry information from Eureka server
+    fetch-registry: false
+    # Service URL for Eureka server, using placeholders for dynamic values
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# Configuration for the Spring Boot server
+server:
+  # Port on which the server runs
+  port: 8761

@@ -1,0 +1,8 @@
+# Configuration du client Spring Cloud Config pour le service Discovery
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+
+# Configuration de l'application Spring Discovery
+application:
+  name: discovery

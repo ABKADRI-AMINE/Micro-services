@@ -1,0 +1,43 @@
+# Configuration de l'instance Eureka
+eureka:
+  instance:
+    hostname: localhost
+
+  # Configuration du client Eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+# Configuration du serveur
+server:
+  port: 8070
+
+# Configuration de l'application Spring Cloud Schools
+spring:
+  application:
+    name: schools
+
+  # Configuration de la base de données PostgreSQL
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/schools
+    username: username
+    password: password
+
+  # Configuration JPA
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+# Configuration de l'application
+application:
+  config:
+    students-url: http://localhost:8222/api/v1/students
+
+# Configuration de la gestion des traces
+management:
+  tracing:
+    sampling:
+      probability: 1.0

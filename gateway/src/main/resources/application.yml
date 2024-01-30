@@ -1,0 +1,8 @@
+# Configuration de l'application Spring Gateway
+spring:
+  application:
+    name: gateway
+
+# Configuration du client Spring Cloud Config pour le service Gateway
+config:
+  import: optional:configserver:http://localhost:8888

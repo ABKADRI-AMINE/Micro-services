@@ -1,0 +1,32 @@
+# Configuration du service en tant que client Eureka
+client:
+  register-with-eureka: false
+
+# Configuration du serveur
+server:
+  port: 8222
+
+# Configuration de l'application Spring Cloud Gateway
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # Activation de la découverte des services avec Eureka
+      routes:
+        - id: students
+          uri: http://localhost:8090  # Adresse du service "students"
+          predicates:
+            - Path=/api/v1/students/**  # Prédicat basé sur le chemin pour le service "students"
+        - id: schools
+          uri: http://localhost:8070  # Adresse du service "schools"
+          predicates:
+            - Path=/api/v1/schools/**  # Prédicat basé sur le chemin pour le service "schools"
+
+# Configuration de la gestion des traces
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # Probabilité de l'échantillonnage des traces
